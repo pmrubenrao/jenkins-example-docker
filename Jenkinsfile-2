@@ -4,8 +4,9 @@ pipeline {
     stage('Back-end') {
       agent {
         docker { 
+                  label 'slave-1'
                   image 'maven:3.8.1-adoptopenjdk-11'
-                  args '--name slave-1'
+                  
         }
       }
       steps {
@@ -15,8 +16,9 @@ pipeline {
     stage('Front-end') {
       agent {
         docker { 
+                  label 'slave-1'
                   image 'node:16-alpine' 
-                  args '--name slave-1'
+                  
         }
       }
       steps {
